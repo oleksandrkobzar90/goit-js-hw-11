@@ -14,9 +14,6 @@
 // Розмітка для одного елемента
 
 // Створення галереї поза DOM деревом
-const form = document.querySelector('.form');
-const ul = document.createElement('ul');
-ul.classList.add('gallery-images');
 
 function imgTemplate(img) {
   const {
