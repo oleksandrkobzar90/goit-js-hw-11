@@ -1,0 +1,9 @@
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form input {
+  margin-right: 8px;
+  padding: 8 px 16px;
+}

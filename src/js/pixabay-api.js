@@ -18,6 +18,6 @@ export function getImagesByQuery(query) {
   };
   return axios
     .get(baseUrl, { params })
-    .then(response => response.data.hits)
+    .then(response => response.data)
     .catch(err => console.error(err));
 }
