@@ -14,18 +14,18 @@ import {
 
 // Створення розмітки для завантажувача
 const form = document.querySelector('.form');
-const loader = document.createElement('span');
-loader.classList.add('loader', 'is-hidden');
-form.insertAdjacentElement('afterend', loader);
+const divLoader = document.createElement('div');
+divLoader.classList.add('loader-wrap', 'is-hidden');
+form.insertAdjacentElement('afterend', divLoader);
 
-console.log(loader);
+const loader = document.createElement('span');
+loader.classList.add('loader');
+divLoader.append(loader);
 
 // Створення розмітки для галереї
 const ul = document.createElement('ul');
 ul.classList.add('gallery');
-loader.insertAdjacentElement('afterend', ul);
-
-console.log(ul);
+divLoader.insertAdjacentElement('afterend', ul);
 
 // Пошукове слово введене в input при submit передається у файл pixabay-api.js для пошуку на сервері відповідних зображень
 form.addEventListener('submit', event => {
@@ -59,5 +59,8 @@ form.addEventListener('submit', event => {
       })
       .catch(err => console.error(err))
       .finally(() => hideLoader());
-  }, 20000);
+  }, 5000);
 });
+
+console.log(divLoader);
+console.log(document.querySelector('.loader'));
