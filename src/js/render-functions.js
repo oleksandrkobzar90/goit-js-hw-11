@@ -31,10 +31,10 @@ export function createGallery(images) {
       height="360"
     />
     <div class="gallery-info">
-      <span class="gallery-info-item">❤️ ${likes}</span>
-      <span class="gallery-info-item">👁 ${views}</span>
-      <span class="gallery-info-item">💬 ${comments}</span>
-      <span class="gallery-info-item">⬇ ${downloads}</span>
+      <span class="gallery-info-item">Likes<span class='indicators'>${likes}</span></span>
+      <span class="gallery-info-item">Views<span class='indicators'>${views}</span></span>
+      <span class="gallery-info-item">Comments<span class='indicators'>${comments}</span></span>
+      <span class="gallery-info-item">Downloads<span class='indicators'>${downloads}</span></span>
     </div>
   </a>
 </li>`;

@@ -1,10 +1,10 @@
-.is-hidden {
-  display: none;
-}
-
 .loader-wrap {
   display: flex;
   justify-content: center;
+}
+
+.is-hidden {
+  display: none;
 }
 
 .loader {

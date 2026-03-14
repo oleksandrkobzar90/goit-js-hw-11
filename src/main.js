@@ -59,7 +59,9 @@ form.addEventListener('submit', event => {
       })
       .catch(err => console.error(err))
       .finally(() => hideLoader());
-  }, 5000);
+  }, 2000);
+
+  event.target.reset();
 });
 
 console.log(divLoader);
