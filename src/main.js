@@ -12,20 +12,7 @@ import {
   hideLoader,
 } from './js/render-functions.js';
 
-// Створення розмітки для завантажувача
 const form = document.querySelector('.form');
-const divLoader = document.createElement('div');
-divLoader.classList.add('loader-wrap', 'is-hidden');
-form.insertAdjacentElement('afterend', divLoader);
-
-const loader = document.createElement('span');
-loader.classList.add('loader');
-divLoader.append(loader);
-
-// Створення розмітки для галереї
-const ul = document.createElement('ul');
-ul.classList.add('gallery');
-divLoader.insertAdjacentElement('afterend', ul);
 
 // Пошукове слово введене в input при submit передається у файл pixabay-api.js для пошуку на сервері відповідних зображень
 form.addEventListener('submit', event => {
