@@ -33,7 +33,7 @@ form.addEventListener('submit', event => {
   const formData = new FormData(event.target);
   const query = formData.get('search-text');
 
-  //Перевірка на порожній пошуковий рядок
+  // Перевірка на порожній пошуковий рядок
   if (!query) return;
 
   // Очистка галереї перед розміткою нових даних
