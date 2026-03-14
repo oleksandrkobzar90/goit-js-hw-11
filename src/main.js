@@ -11,6 +11,7 @@ import {
   showLoader,
   hideLoader,
 } from './js/render-functions.js';
+import errorIcon from './img/Error.svg';
 
 const form = document.querySelector('.form');
 
@@ -29,14 +30,18 @@ form.addEventListener('submit', event => {
   // Демонстрація завантажувача
   showLoader();
 
-  // Пошук по ключовому слові на сервері. Без затримки не відображається css-loader
+  // Пошук по ключовому слові на сервері.
   setTimeout(() => {
     getImagesByQuery(query)
       .then(data => {
+        // Перевірка чи дані не порожні, тобто незнайдено жодного елементу за ключовим словом, а тому масив порожній.
+        // Виводиться повідомлення про пороржній масив.
         if (data.hits.length === 0) {
           iziToast.error({
             position: 'topRight',
-            message: `Sorry, there are no images matching your search query. Please try again!`,
+            message: `Sorry, there are no images matching<br/>your search query. Please try again!`,
+            backgroundColor: '#ef4040',
+            iconUrl: errorIcon,
           });
           return;
         }
@@ -44,12 +49,20 @@ form.addEventListener('submit', event => {
         // Розмітка нових даних
         createGallery(data.hits);
       })
-      .catch(err => console.error(err))
+
+      // Якщо помилка пов'язана з помилкою мережі, тобто з відсутністю з'єднання або даними undefined.
+      .catch(err => {
+        console.error(err);
+        iziToast.error({
+          position: 'topRight',
+          message: 'Something went wrong. Please try again later!',
+          backgroundColor: '#ef4040',
+          iconUrl: errorIcon,
+        });
+        return;
+      })
       .finally(() => hideLoader());
   }, 2000);
 
   event.target.reset();
 });
-
-console.log(divLoader);
-console.log(document.querySelector('.loader'));

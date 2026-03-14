@@ -61,10 +61,16 @@ export function clearGallery() {
 
 // Зявляється css-loader
 export function showLoader() {
-  document.querySelector('.loader-wrap').classList.remove('is-hidden');
+  const loaderWrap = document.querySelector('.loader-wrap');
+  if (loaderWrap) {
+    loaderWrap.classList.remove('is-hidden');
+  }
 }
 
 // Прибирається css-loader
 export function hideLoader() {
-  document.querySelector('.loader-wrap').classList.add('is-hidden');
+  const loaderWrap = document.querySelector('.loader-wrap');
+  if (loaderWrap) {
+    loaderWrap.classList.add('is-hidden');
+  }
 }
